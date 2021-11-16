@@ -1,0 +1,10 @@
+{
+  "name": "Cognigy",
+  "version": "1.0.0",
+  "description": "Doing a task for my application in Cognigy",
+  "main": "index.js",
+  "repository": "https://github.com/aminnoura/Cognigy.git",
+  "author": "amin noura",
+  "license": "MIT",
+  "private": false
+}
