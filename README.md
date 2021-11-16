@@ -10,3 +10,6 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 4. Typescript
 5. Material UI
 6. @cognigy/socket-client
+
+## Scripts
+1. `yarn dev` -> run the app in development mode with hot reloading
