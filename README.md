@@ -20,3 +20,6 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 ## Config
 rename config file (remove `.copy` from file name) and add your token and endpoint. <br/>
 File name should be `conf.ts` after renaming
+
+## To Fix
+Issue with add local variables from .env file
