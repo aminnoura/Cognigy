@@ -24,7 +24,7 @@ type propTypes = {
 
 const Chat: FC<propTypes> = ({status}): ReactElement => {
 	const dispatch = useDispatch();
-	const [userText, setUserText]= useState('');
+	const [userText, setUserText]= useState<string>('');
 	const messageList = useSelector((selector: RootState) => selector.messageList);
 	const classes = useStyles();
 	const submit = () => {
