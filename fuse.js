@@ -2,11 +2,11 @@ const { fusebox } = require('fuse-box');
 const path = require('path');
 const fuse = fusebox({
   cache: true,
-  devServer: true,
+  devServer: process.env.DEVELOPMENT == 1,
+  runServer: process.env.DEVELOPMENT == 1,
   entry: 'src/index.tsx',
   hmr : true,
   target: 'browser',
-//   useTypescriptCompiler: true,
   webIndex: {
     template: 'src/index.html',
   },
@@ -22,7 +22,7 @@ if (process.env.DEVELOPMENT == 1) {
 } else {
   fuse.runProd({
     bundles: {
-      app: 'app.js',
+      app: { path: 'app.js', publicPath: '.' },
       distRoot: path.join(__dirname, 'prod'),
     },
   });

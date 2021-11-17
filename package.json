@@ -9,7 +9,9 @@
 	"private": false,
 	"scripts": {
 		"dev": "set PRODUCTION=0 && set DEVELOPMENT=1 && node fuse",
-		"prod": "set DEVELOPMENT=0 && set PRODUCTION=1 && node fuse"
+		"prod": "set DEVELOPMENT=0 && set PRODUCTION=1 && node fuse",
+		"dockerRun": "docker run --rm -it -p 3000:80 -d --name cognigycontainer cognigy:1.0",
+		"dockerBuild": "docker build --tag cognigy:1.0 ."
 	},
 	"dependencies": {
 		"@cognigy/socket-client": "^4.5.5",

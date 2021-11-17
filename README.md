@@ -15,8 +15,11 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 * Clone the project
 1. `yarn` -> installing the required dependencies
 2. `yarn dev` -> run the app in development mode with hot reloading
-2. `yarn prod` -> run the app in Production mode, create a production version under prod folder
+3. `yarn prod` -> run the app in Production mode, create a production version under prod folder
     ### send `cat image` to chat and get a nice cat image back
+### Or try the Docker
+4. `yarn dockerBuild` -> building the docker container
+5. `yarn dockerRun` -> running the docker, then visit http://localhost:3000
 
 ## Config
 rename config file (remove `.copy` from file name) and add your token and endpoint. <br/>

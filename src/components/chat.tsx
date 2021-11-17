@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 		height: '100vh',
 		width: '100vw',
 		backgroundColor: '#fff',
-        margin: '0 0 0 0',
+        margin: '0 auto',
         padding: '20px', 
         borderRadius: 6,
         minWidth: '300px',
