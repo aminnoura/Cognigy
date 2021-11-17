@@ -16,7 +16,7 @@ const UserImage = require('../assests/images/user.png');
 const useStyles = makeStyles({
 	mainContainer: {
 		height: '100vh',
-		width: '50vw',
+		width: '100vw',
 		backgroundColor: '#fff',
         margin: '0 0 0 0',
         padding: '20px', 
@@ -30,9 +30,9 @@ const useStyles = makeStyles({
         width: '100%',
         borderRadius: 6,
 		backgroundColor: 'transparent',
-        padding: '0 0 0 0',
+        padding: '8px',
         margin: '0 0 0 0',
-        border: '2px solid #777'
+        border: '4px solid #777'
 	},
     textField: {
         width: '40%',
