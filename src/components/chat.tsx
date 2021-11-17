@@ -110,7 +110,7 @@ const Chat: FC<propTypes> = ({status}): ReactElement => {
 	const classes = useStyles();
 	const submit = () => {
 		dispatch(addMessage({sender: 'user', text: userText }));
-		client.sendMessage(userText);
+		client.sendMessage(userText.trim());
 		setUserText('');
 	}
 	const keyPress = (e) => {

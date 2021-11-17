@@ -25,3 +25,4 @@ File name should be `conf.ts` after renaming
 * Issue with add local variables from .env file
 * I never worked with material UI before, probably it can be much better 
 * Add linting
+* Robot doesn't trim the message and a space at the end of message cause a wrong answer
