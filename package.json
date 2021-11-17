@@ -8,7 +8,8 @@
 	"license": "MIT",
 	"private": false,
 	"scripts": {
-		"dev": "node fuse"
+		"dev": "set PRODUCTION=0 && set DEVELOPMENT=1 && node fuse",
+		"prod": "set DEVELOPMENT=0 && set PRODUCTION=1 && node fuse"
 	},
 	"dependencies": {
 		"@cognigy/socket-client": "^4.5.5",

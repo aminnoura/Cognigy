@@ -1,4 +1,3 @@
-  
 const { fusebox } = require('fuse-box');
 const path = require('path');
 const fuse = fusebox({
@@ -13,10 +12,18 @@ const fuse = fusebox({
   },
   plugins: []
 });
-
-fuse.runDev({
-  bundles: {
-    app: 'app.js',
-    distRoot: path.join(__dirname, 'dist'),
-  },
-});
+if (process.env.DEVELOPMENT == 1) {
+  fuse.runDev({
+    bundles: {
+      app: 'app.js',
+      distRoot: path.join(__dirname, 'dist'),
+    }
+  });
+} else {
+  fuse.runProd({
+    bundles: {
+      app: 'app.js',
+      distRoot: path.join(__dirname, 'prod'),
+    },
+  });
+}

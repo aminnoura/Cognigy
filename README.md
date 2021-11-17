@@ -15,6 +15,7 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 * Clone the project
 1. `yarn` -> installing the required dependencies
 2. `yarn dev` -> run the app in development mode with hot reloading
+2. `yarn prod` -> run the app in Production mode, create a production version under prod folder
     ### send `cat image` to chat and get a nice cat image back
 
 ## Config
