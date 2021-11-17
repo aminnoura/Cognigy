@@ -1,0 +1,2 @@
+export const REACT_APP_ENDPOINT = "https://......";
+export const REACT_APP_TOKEN = "...... your token here ....";

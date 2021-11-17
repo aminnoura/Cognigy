@@ -12,4 +12,11 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 6. @cognigy/socket-client
 
 ## Scripts
-1. `yarn dev` -> run the app in development mode with hot reloading
+* Clone the project
+1. `yarn` -> installing the required dependencies
+2. `yarn dev` -> run the app in development mode with hot reloading
+    ### send `cat image` to chat and get a nice cat image back
+
+## Config
+rename config file (remove `.copy` from file name) and add your token and endpoint. <br/>
+File name should be `conf.ts` after renaming
