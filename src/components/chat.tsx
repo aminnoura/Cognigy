@@ -1,4 +1,4 @@
-import React, { ReactElement, FC, useState } from "react";
+import React, { ReactElement, FC, useState, useRef, useEffect } from "react";
 import {
     TextField, Button, Container,
     makeStyles, List, ListItem,
@@ -94,6 +94,10 @@ type propTypes = {
 
 const Chat: FC<propTypes> = ({status}): ReactElement => {
 	const dispatch = useDispatch();
+    const messagesEndRef = useRef(null);
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
 	const [userText, setUserText]= useState<string>('');
 	const messageList = useSelector((selector: RootState) => selector.messageList);
 	const classes = useStyles();
@@ -107,6 +111,9 @@ const Chat: FC<propTypes> = ({status}): ReactElement => {
 			submit();
 		 }
 	}
+    useEffect(() => {
+        scrollToBottom();
+    }, [messageList]);
 	return (
 		<Container className={classes.mainContainer}>
 			<Container className={classes.messageListContainer}>
@@ -129,6 +136,7 @@ const Chat: FC<propTypes> = ({status}): ReactElement => {
 							</ListItem>
 						))
 					}
+                    <div ref={messagesEndRef} />
 				</List>
 			</Container>
 			<TextField
