@@ -1,6 +1,8 @@
 import React, { ReactElement, FC, useEffect, useState } from "react";
 import { TextField, Button, Container, makeStyles } from "@material-ui/core";
 import {client} from "./util/client";
+import { useDispatch, useSelector } from "react-redux";
+import { addMessage } from "./store/actions/MessageList";
 
 const useStyles = makeStyles({
 	mainContainer: {
@@ -15,22 +17,25 @@ const useStyles = makeStyles({
 })
 
 const APP: FC = (): ReactElement => {
+	const dispatch = useDispatch();
 	const [userText, setUserText]= useState('');
 	const [status, setStatus] = useState('init');
-	const [messageList, setMessageList] = useState([]);
+	const messageList = useSelector(selector => selector.messageList);
 	const classes = useStyles();
 	const submit = () => {
-		setMessageList([...messageList, {sender: 'user', text: userText }]);
+		dispatch(addMessage({sender: 'user', text: userText }));
 		client.sendMessage(userText);
 		setUserText('');
+	}
+	const keyPress = (e) => {
+		if(e.keyCode == 13){
+			submit();
+		 }
 	}
 	
 	useEffect(() => {
 		client.on("output", output => {
-			console.log(output);
-			setMessageList(prev => {
-				return [...prev, {sender: 'bot', text: output.text, data: output.data }]
-			});
+			dispatch(addMessage({sender: 'bot', text: output.text, data: output.data}));
 		})
 		client.connect().then(res => {
 			setStatus('connected');
@@ -58,7 +63,14 @@ const APP: FC = (): ReactElement => {
 					}
 				</ul>
 			</Container>
-			<TextField id="standard-basic" label="Your Message" variant="standard" value={userText} onChange={(e) => setUserText(e.target.value)}/>
+			<TextField
+				id="standard-basic"
+				label="Your Message"
+				variant="standard"
+				value={userText}
+				onChange={(e) => setUserText(e.target.value)}
+				onKeyDown={keyPress}
+			/>
 			{status === 'connected' && <Button variant="contained" onClick={submit}>Submit</Button>}
 		</Container>
 	);
