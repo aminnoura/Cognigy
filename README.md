@@ -20,3 +20,9 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 ## Config
 rename config file (remove `.copy` from file name) and add your token and endpoint. <br/>
 File name should be `conf.ts` after renaming
+
+## To Fix or Improve
+* Issue with add local variables from .env file
+* I never worked with material UI before, probably it can be much better 
+* Add linting
+* Robot doesn't trim the message and a space at the end of message cause a wrong answer
