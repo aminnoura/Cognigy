@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addMessage } from "./store/actions/MessageList";
 import Chat from "./components/chat";
 import { StatusType } from "./util/types";
+import './App.css';
 
 const APP: FC<{}> = (): ReactElement => {
 	const dispatch = useDispatch();

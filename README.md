@@ -21,5 +21,7 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 rename config file (remove `.copy` from file name) and add your token and endpoint. <br/>
 File name should be `conf.ts` after renaming
 
-## To Fix
-Issue with add local variables from .env file
+## To Fix or Improve
+* Issue with add local variables from .env file
+* I never worked with material UI before, probably it can be much better 
+* Add linting
