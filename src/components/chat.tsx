@@ -75,16 +75,23 @@ const useStyles = makeStyles({
         flexDirection: 'row-reverse',
         backgroundColor: '#ddd',
     },
+    listItemAvatar: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     image: {
         width: '120px',
         height: '120px',
         float: 'left',
-        marginTop: '8px',
+        marginLeft: '8px',
         borderRadius: '8px'
     },
     messageBox: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 })
 
@@ -121,7 +128,7 @@ const Chat: FC<propTypes> = ({status}): ReactElement => {
 					{
 						messageList.map((message, i) => (
 							<ListItem key={i} className={`${classes.list} ${message.sender === 'bot'? classes.left:classes.right}`}>
-                                <ListItemAvatar>
+                                <ListItemAvatar className={classes.listItemAvatar}>
                                     <>
                                         <Avatar src={message.sender === 'bot' ? BotImage : UserImage}></Avatar>
                                         <ListItemText
