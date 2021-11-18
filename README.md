@@ -20,6 +20,8 @@ This would be a Web-based Chatbot UI, based on frontend coding challenge from Co
 ### Or try the Docker
 4. `yarn dockerBuild` -> building the docker container
 5. `yarn dockerRun` -> running the docker, then visit http://localhost:3000
+    * The config file should rename before using the docker.
+6. `yarn test` -> this will run the test (Jest, React). Currently only includes 4 tests for chat component
 
 ## Config
 rename config file (remove `.copy` from file name) and add your token and endpoint. <br/>

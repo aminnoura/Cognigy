@@ -2,7 +2,7 @@ import React, { ReactElement, FC, useState, useRef, useEffect } from "react";
 import {
     TextField, Button, Container,
     makeStyles, List, ListItem,
-    ListItemAvatar, Avatar, ListItemText
+    ListItemAvatar, Avatar, ListItemText, Modal, Typography, Box
 } from "@material-ui/core";
 import {client} from "../util/client";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,8 +10,8 @@ import { addMessage } from "../store/actions/MessageList";
 import { StatusType } from "../util/types";
 import { RootState } from "../store/reducers";
 
-const BotImage = require('../assests/images/bot.png');
-const UserImage = require('../assests/images/user.png');
+import * as BotImage from '../assests/images/bot.png';
+import * as UserImage from '../assests/images/user.png';
 
 const useStyles = makeStyles({
 	mainContainer: {
@@ -92,6 +92,22 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    modalBox: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: '24',
+        p: 4
+    },
+    modalText: {
+        backgroundColor : 'white',
+        padding : '16px',
+        textAlign : 'center'
     }
 })
 
@@ -103,7 +119,9 @@ const Chat: FC<propTypes> = ({status}): ReactElement => {
 	const dispatch = useDispatch();
     const messagesEndRef = useRef(null);
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        if (messagesEndRef.current) {
+            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
     };
 	const [userText, setUserText]= useState<string>('');
 	const messageList = useSelector((selector: RootState) => selector.messageList);
@@ -155,6 +173,15 @@ const Chat: FC<propTypes> = ({status}): ReactElement => {
                 className={classes.textField}
 			/>
 			{status === StatusType.CONNECTED && <Button color="primary" className={classes.submitButton} variant="contained" onClick={submit}>Submit</Button>}
+			{status === StatusType.ERROR && (
+                <Modal open={true}>
+                    <Box className={classes.modalBox}>
+                        <Typography className={classes.modalText} id="modal-modal-title" variant="h6" component="h2">
+                            Something went wrong
+                        </Typography>
+                    </Box>
+                </Modal>
+            )}
 		</Container>
 	);
 };
