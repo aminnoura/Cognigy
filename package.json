@@ -1,5 +1,5 @@
 {
-	"name": "Cognigy",
+	"name": "cognigy",
 	"version": "1.0.0",
 	"description": "Doing a task for my application in Cognigy",
 	"main": "index.js",
@@ -11,7 +11,8 @@
 		"dev": "set PRODUCTION=0 && set DEVELOPMENT=1 && node fuse",
 		"prod": "set DEVELOPMENT=0 && set PRODUCTION=1 && node fuse",
 		"dockerRun": "docker run --rm -it -p 3000:80 -d --name cognigycontainer cognigy:1.0",
-		"dockerBuild": "docker build --tag cognigy:1.0 ."
+		"dockerBuild": "docker build --tag cognigy:1.0 .",
+		"test": "jest"
 	},
 	"dependencies": {
 		"@cognigy/socket-client": "^4.5.5",
@@ -24,8 +25,33 @@
 		"react-redux": "^7.2.6"
 	},
 	"devDependencies": {
+		"@testing-library/react": "^12.1.2",
+		"@types/jest": "^27.0.2",
 		"@types/node": "^16.11.7",
 		"fuse-box": "^4.0.0",
+		"fuse-test-runner": "^1.0.16",
+		"jest": "^27.3.1",
+		"react-test-renderer": "^17.0.2",
+		"ts-jest": "^27.0.7",
 		"typescript": "^4.4.4"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.tsx?$": "ts-jest"
+		},
+		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+		"testEnvironment": "jsdom",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"jsx",
+			"json",
+			"node"
+		],
+		"moduleNameMapper": {
+			"\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/mocks/fileMock.js",
+			"\\.(css|less)$": "<rootDir>/mocks/fileMock.js"
+		}
 	}
 }
